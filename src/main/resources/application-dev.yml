@@ -1,0 +1,20 @@
+application:
+            name: OpenInvenrotyMgt
+            execution:
+                 profile: dev
+            jwt_tokens:
+                       public_key: NOT_DEFINED
+                       private_key: NOT_DEFINED
+                       jwt_secrete: dwt_secret
+            datasource:
+                       dburl: localhost
+                       port : 3306
+                       databasename: openinventorymgt
+                       connectionstring: jdbc:mysql://${application.datasource.dburl}:${application.datasource.port}/openinvenroty
+                       uname : openinventoryuser
+                       pwd : openinvuser123
+                       hibernate.dialect : org.hibernate.dialect.MySQL5Dialect
+                       hibernate.show_sql : true
+                       #hibernate.hbm2ddl.auto : create-drop
+                       hibernate.hbm2ddl.auto : update
+            upmserviceenabled: false

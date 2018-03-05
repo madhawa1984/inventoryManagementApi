@@ -52,17 +52,25 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto searchUserById(long Id) throws Exception {
-        return null;
-    }
-
-    @Override
     public UserDto createUser(UserDto user) throws Exception {
         User userData = getUserfromDto(user);
         userDaoObj.createUser(userData);
         System.out.println(userData.getId());
         user = getUserById(userData.getId());
         return user;
+
+    }
+
+    @Override
+    public UserDto searchUserById(long Id) throws Exception {
+        return null;
+    }
+
+    @Override
+    public UserDto searchUserByLoginId(String loginId) throws Exception {
+
+        User user = userDaoObj.getUserByLoginId(loginId);
+        return getUserDtofromModel(user);
 
     }
 

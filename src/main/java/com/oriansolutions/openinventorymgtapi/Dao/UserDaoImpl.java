@@ -20,6 +20,36 @@ public class UserDaoImpl implements UserDao {
     @Autowired
     private SessionFactory sesionFactory;
 
+    @Override
+    public User getUserByLoginId(String loginId) throws Exception {
+
+        Session session = null;
+        User userInstance = null;
+        try {
+            session = this.sesionFactory.openSession();
+            //session = this.sessionFactoryBean.getCurrentSession();
+            org.hibernate.query.Query query = session.createQuery("from User where loginId=:loginId");
+            query.setParameter("loginId", loginId);
+            List<User> userList = query.list();
+            if (!userList.isEmpty()) {
+                userInstance = userList.get(0);
+                // initialize the other relationships
+                // Hibernate.initialize(userInstance.getOtherRelationoships());
+            }
+            session.clear();
+            session.close();
+
+        }catch(Exception e) {
+            throw new Exception(); // check on this
+
+        }finally {
+            if(session!=null) {
+                session.close();
+            }
+        }
+
+        return userInstance;
+    }
 
     @Override
     public User getUserById(long IdValue) throws Exception {

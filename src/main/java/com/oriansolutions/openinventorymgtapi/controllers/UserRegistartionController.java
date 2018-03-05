@@ -18,10 +18,13 @@ public class UserRegistartionController {
 
     @RequestMapping(value = "/user/signup", method = RequestMethod.POST)
     public @ResponseBody UserDto create(@RequestBody UserDto userDto) throws Exception {
-
         userDto = userServiceObj.createUser(userDto);
         return userDto;
-        // return null;
+    }
 
+
+    @RequestMapping(value = "/user/userinfo/{loginId}", method = RequestMethod.GET)
+    public @ResponseBody UserDto readUserByLoginId(@PathVariable("loginId") String loginId) throws Exception {
+        return userServiceObj.searchUserByLoginId(loginId);
     }
 }

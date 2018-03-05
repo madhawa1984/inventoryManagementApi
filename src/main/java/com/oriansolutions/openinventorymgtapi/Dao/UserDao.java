@@ -7,6 +7,7 @@ import com.oriansolutions.openinventorymgtapi.model.User;
  */
 public interface UserDao {
     public User getUserById(long Id) throws Exception;
+    public User getUserByLoginId(String loginId) throws Exception;
     public void createUser(User user) throws Exception;
     public void modifyUser(User user) throws Exception;
     public void dropUser(User user) throws Exception;

@@ -24,7 +24,36 @@ public class User {
     private String loginId;
     @Column(name="USER_EMAIL")
     private String email;
+    @Column(name="LAND_PHONE_NO")
+    private String landPhoneNo;
+    @Column(name="MOBILE_PHONE_NO")
+    private String moilePhoneNo;
+    @Column(name="PERSONAL_ADDRESS")
+    private String personalAddress;
 
+    public String getMoilePhoneNo() {
+        return moilePhoneNo;
+    }
+
+    public void setMoilePhoneNo(String moilePhoneNo) {
+        this.moilePhoneNo = moilePhoneNo;
+    }
+
+    public String getLandPhoneNo() {
+        return landPhoneNo;
+    }
+
+    public void setLandPhoneNo(String landPhoneNo) {
+        this.landPhoneNo = landPhoneNo;
+    }
+
+    public String getPersonalAddress() {
+        return personalAddress;
+    }
+
+    public void setPersonalAddress(String personalAddress) {
+        this.personalAddress = personalAddress;
+    }
     public String getFirstName() {
         return firstName;
     }

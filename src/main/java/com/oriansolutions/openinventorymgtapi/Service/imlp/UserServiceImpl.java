@@ -20,18 +20,29 @@ public class UserServiceImpl implements UserService {
 
     private User getUserfromDto(UserDto user) {
         User userObj = new User();
+        userObj.setId(user.getId());
         userObj.setFirstName(user.getFirstName());
         userObj.setLastName(user.getLastName());
+        userObj.setPassword(user.getPassword()); // password need to be encrypted
+        // TODO:; password fields need to be non mutable avoid password MEMORY dump
+        userObj.setLoginId(user.getLoginId());
         userObj.setEmail(user.getEmail());
+        userObj.setLandPhoneNo(user.getLandPhoneNo());
+        userObj.setMoilePhoneNo(user.getMoilePhoneNo());
+        userObj.setPersonalAddress(user.getPersonalAddress());
         return userObj;
     }
 
     private UserDto getUserDtofromModel(User user) {
         UserDto userDtoObj = new UserDto();
+        userDtoObj.setId(user.getId());
         userDtoObj.setFirstName(user.getFirstName());
         userDtoObj.setLastName(user.getLastName());
+        userDtoObj.setLoginId(user.getLoginId());
         userDtoObj.setEmail(user.getEmail());
-        userDtoObj.setId(user.getId());
+        userDtoObj.setLandPhoneNo(user.getLandPhoneNo());
+        userDtoObj.setMoilePhoneNo(user.getMoilePhoneNo());
+        userDtoObj.setPersonalAddress(user.getPersonalAddress());
         return userDtoObj;
     }
 
